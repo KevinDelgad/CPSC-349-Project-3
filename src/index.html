@@ -9,8 +9,49 @@
 
 </head>
 <body>
-    <header>
-        <h1 class="flex  text-red-800">Rock Paper Scissor!</h1>
+    <header class="flex justify-center">
+        <h1 class="text-red-800 text-8xl">Rock Paper Scissors!</h1>
     </header>
+
+    <main>
+        <div class="flex justify-evenly mt-32">
+            <div class="card lg:card-side max-w-3xl bg-base-100 shadow-xl">
+                <figure><img clas = "w-1/4" src="images/computer-lab-icon-2.jpg" alt="Album"/></figure>
+                <div class="card-body">
+                  <h2 class="card-title">Computer</h2>
+                  <p>The computers choice: </p>
+                </div>
+              </div>
+    
+              <div class="card lg:card-side max-w-3xl bg-base-100 shadow-xl">
+                <figure><img src="images/player.png" alt="Album"/></figure>
+                <div class="card-body">
+                  <h2 class="card-title">Player</h2>
+                  <p>Your choice: </p>
+                  <div class="card-actions justify-end flex flex-col">
+                    <button class="btn btn-primary">Rock</button>
+                    <button class="btn btn-primary">Paper</button>
+                    <button class="btn btn-primary">Scissors</button>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </main>
+
+    <footer class="flex justify-center mt-20">
+        <div class="flex gap-4">
+            <select class="select w-full max-w-xs" id="pointMenu">
+                <option disabled selected>To how many points?</option>
+                <option>3</option>
+                <option>5</option>
+                <option>7</option>
+                <option>9</option>
+                <option>11</option>
+              </select>
+
+              <button class="btn" id="startbtn">Button</button>
+        </div>
+    </footer>
+    <script type="module" src="game.js"></script>
 </body>
 </html>
