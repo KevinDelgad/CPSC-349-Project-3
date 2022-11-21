@@ -39,6 +39,9 @@ userChoices.appendChild(rock);
 userChoices.appendChild(paper);
 userChoices.appendChild(scissors);
 
+const playerPic = document.getElementById('playerPic');
+const compPic = document.getElementById('cpuPic');
+
 startbtn.addEventListener('click', ()=>{
     startbtn.style.display = "none";
     pntMenu.style.display = "none";
@@ -50,15 +53,18 @@ startbtn.addEventListener('click', ()=>{
 })
 
 scissors.addEventListener('click', ()=>{
-    console.log("S!");   
+    console.log("S!");
+    playerPic.src = ('images/4VAR8_AS01.jpeg');   
 })
 
 paper.addEventListener('click', ()=>{
     console.log("P!");   
+    playerPic.src = ('images/Notebook-Paper-US-Letter.png');
 })
 
 rock.addEventListener('click', ()=>{
     console.log("R!");   
+    playerPic.src = ('images/1200px-Two-parts_stone_nikogda_takih_ne_videl_vot.jpeg');
 })
 
 resetbtn.addEventListener('click', reset);
@@ -74,4 +80,7 @@ function reset(){
     rock.style.display = "none";
     paper.style.display = "none";
     resetbtn.style.display = "none";
+
+    playerPic.src = ("images/player.png")
 }
+
