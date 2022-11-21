@@ -3,6 +3,21 @@ const pntMenu = document.getElementById('pointMenu');
 const userChoices=document.getElementById('userchoices');
 const cNav = document.getElementById('centralNav');
 
+const continueBtn = document.createElement('button');
+continueBtn.textContent = "Continue";
+continueBtn.classList.add("btn");
+continueBtn.classList.add("btn-primary");
+continueBtn.style.display = "none";
+cNav.appendChild(continueBtn);
+
+
+const cpuTurnbtn = document.createElement('button');
+cpuTurnbtn.textContent = "CPU turn";
+cpuTurnbtn.classList.add("btn");
+cpuTurnbtn.classList.add("btn-primary");
+cpuTurnbtn.style.display = "none";
+cNav.appendChild(cpuTurnbtn);
+
 const resetbtn = document.createElement('button');
 resetbtn.textContent = "Reset";
 resetbtn.classList.add("btn");
@@ -55,16 +70,30 @@ startbtn.addEventListener('click', ()=>{
 scissors.addEventListener('click', ()=>{
     console.log("S!");
     playerPic.src = ('images/4VAR8_AS01.jpeg');   
+    disableButtons();
 })
 
 paper.addEventListener('click', ()=>{
     console.log("P!");   
     playerPic.src = ('images/Notebook-Paper-US-Letter.png');
+    disableButtons();
 })
 
 rock.addEventListener('click', ()=>{
     console.log("R!");   
     playerPic.src = ('images/1200px-Two-parts_stone_nikogda_takih_ne_videl_vot.jpeg');
+    disableButtons();
+})
+
+cpuTurnbtn.addEventListener('click', () =>{
+    continueBtn.style.display = "block";
+    cpuTurnbtn.style.display = "none";
+
+})
+
+continueBtn.addEventListener('click', () => {
+    continueBtn.style.display = "none";
+    enableButtons();
 })
 
 resetbtn.addEventListener('click', reset);
@@ -80,7 +109,21 @@ function reset(){
     rock.style.display = "none";
     paper.style.display = "none";
     resetbtn.style.display = "none";
+    cpuTurnbtn.style.display = 'none'; 
 
     playerPic.src = ("images/player.png")
 }
 
+function disableButtons(){
+    cpuTurnbtn.style.display = "block";
+
+    scissors.disabled = true;
+    rock.disabled = true;
+    paper.disabled = true;
+}
+
+function enableButtons(){
+    scissors.disabled = false;
+    rock.disabled = false;
+    paper.disabled = false;
+}
