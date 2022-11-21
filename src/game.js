@@ -127,3 +127,10 @@ function enableButtons(){
     rock.disabled = false;
     paper.disabled = false;
 }
+
+function pickComputerMove(){
+    // Math.random() generates a number between 0(inclusive) and 1(exclusive).  
+    // We multiply that by 3 for 3 possible moves.  now we have a number between 0(inclusive) and 3(exclusive).  
+    // Math.floor(x) rounds down to the nearest int, giving us one of three values (0, 1, or 2) 
+    return Math.floor( Math.random() * 3 );
+}
