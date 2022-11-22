@@ -127,3 +127,43 @@ function enableButtons(){
     rock.disabled = false;
     paper.disabled = false;
 }
+
+function pickCPUMove(){
+    // Math.random() generates a number between 0(inclusive) and 1(exclusive).  
+    // We multiply that by 3 for 3 possible moves.  now we have a number between 0(inclusive) and 3(exclusive).  
+    // Math.floor(x) rounds down to the nearest int, giving us one of three values (0, 1, or 2) 
+    return Math.floor( Math.random() * 3 );
+}
+
+function determineResult(playerMove, CPUMove){
+    /* Possible Moves
+       0 - rock
+       1 - paper
+       2 - scissors
+    */
+    
+    if(playerMove == CPUMove){
+        return "Draw";
+    }
+    else if (((playerMove + 2) % 3) == CPUMove){
+        userpnts += 1;
+        return "PlayerWin";
+    }
+    else {
+        cpupnts += 1;
+        return "CPUWin";
+    }
+
+}
+
+function checkWin() {
+    if (userpnts >= targetpnts){
+        return "Game end - PlayerWin";
+    }
+    else if (cpupnts >= targetpnts){
+        return "Game end - CPUWin";
+    }
+    else {
+        return false;
+    }
+}
