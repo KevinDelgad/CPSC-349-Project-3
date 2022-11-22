@@ -11,9 +11,25 @@ continueBtn.style.display = "none";
 cNav.appendChild(continueBtn);
 
 
+let userpnts = 0;
+let cpupnts = 0;
+let targetpnts = 1;
+
 const resultSection = document.createElement('div');
 
 const roundResults = document.createElement('p');
+
+const ctnGame = document.createElement('button');
+ctnGame.textContent = "Continue Prev Game";
+ctnGame.classList.add("btn");
+ctnGame.classList.add("btn-primary");
+ctnGame.style.display = "none";
+cNav.appendChild(ctnGame);
+
+if(targetpnts != 0){
+    ctnGame.style.display = "block"
+}
+
 
 const cpuTurnbtn = document.createElement('button');
 cpuTurnbtn.textContent = "CPU turn";
@@ -28,10 +44,6 @@ resetbtn.classList.add("btn");
 resetbtn.classList.add("btn-primary");
 resetbtn.style.display = "none";
 cNav.appendChild(resetbtn);
-
-let userpnts = 0;
-let cpupnts = 0;
-let targetpnts = 0;
 
 const userPoints = document.createElement('p')
 
@@ -63,7 +75,19 @@ const compPic = document.getElementById('cpuPic');
 
 let userMove = 0;
 
+ctnGame.addEventListener('click', () =>{
+    ctnGame.style.display = "none";
+    startbtn.style.display = "none";
+    pntMenu.style.display = "none";
+
+    scissors.style.display = "block";
+    rock.style.display = "block";
+    paper.style.display = "block";
+    resetbtn.style.display = "block"
+})
+
 startbtn.addEventListener('click', ()=>{
+    ctnGame.style.display = "none";
     targetpnts = pntMenu.value;
     console.log(targetpnts);
     startbtn.style.display = "none";
@@ -134,6 +158,8 @@ function reset(){
 
     playerPic.src = ("images/player.png")
     compPic.src = "images/computer-lab-icon-2.jpg"
+    
+    enableButtons();
 }
 
 function disableButtons(){
@@ -148,7 +174,7 @@ function enableButtons(){
     scissors.disabled = false;
     rock.disabled = false;
     paper.disabled = false;
-}
+}   
 
 function pickCPUMove(){
     // Math.random() generates a number between 0(inclusive) and 1(exclusive).  
