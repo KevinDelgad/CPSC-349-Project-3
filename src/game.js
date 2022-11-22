@@ -11,6 +11,10 @@ continueBtn.style.display = "none";
 cNav.appendChild(continueBtn);
 
 
+const resultSection = document.createElement('div');
+
+const roundResults = document.createElement('p');
+
 const cpuTurnbtn = document.createElement('button');
 cpuTurnbtn.textContent = "CPU turn";
 cpuTurnbtn.classList.add("btn");
@@ -57,7 +61,11 @@ userChoices.appendChild(scissors);
 const playerPic = document.getElementById('playerPic');
 const compPic = document.getElementById('cpuPic');
 
+let userMove = 0;
+
 startbtn.addEventListener('click', ()=>{
+    targetpnts = pntMenu.value;
+    console.log(targetpnts);
     startbtn.style.display = "none";
     pntMenu.style.display = "none";
 
@@ -71,29 +79,42 @@ scissors.addEventListener('click', ()=>{
     console.log("S!");
     playerPic.src = ('images/4VAR8_AS01.jpeg');   
     disableButtons();
+
+    userMove = 2;
 })
 
 paper.addEventListener('click', ()=>{
     console.log("P!");   
     playerPic.src = ('images/Notebook-Paper-US-Letter.png');
     disableButtons();
+
+    userMove = 1;
+
 })
 
 rock.addEventListener('click', ()=>{
     console.log("R!");   
     playerPic.src = ('images/1200px-Two-parts_stone_nikogda_takih_ne_videl_vot.jpeg');
     disableButtons();
+
+    userMove = 0;
 })
 
 cpuTurnbtn.addEventListener('click', () =>{
     continueBtn.style.display = "block";
+    determineResult(userMove ,pickCPUMove());
     cpuTurnbtn.style.display = "none";
 
 })
 
+
 continueBtn.addEventListener('click', () => {
     continueBtn.style.display = "none";
-    enableButtons();
+    if(checkWin() === false){
+        playerPic.src = "images/player.png"
+        compPic.src = "images/computer-lab-icon-2.jpg"
+        enableButtons();
+    }
 })
 
 resetbtn.addEventListener('click', reset);
@@ -112,6 +133,7 @@ function reset(){
     cpuTurnbtn.style.display = 'none'; 
 
     playerPic.src = ("images/player.png")
+    compPic.src = "images/computer-lab-icon-2.jpg"
 }
 
 function disableButtons(){
@@ -132,7 +154,18 @@ function pickCPUMove(){
     // Math.random() generates a number between 0(inclusive) and 1(exclusive).  
     // We multiply that by 3 for 3 possible moves.  now we have a number between 0(inclusive) and 3(exclusive).  
     // Math.floor(x) rounds down to the nearest int, giving us one of three values (0, 1, or 2) 
-    return Math.floor( Math.random() * 3 );
+    let move = Math.floor( Math.random() * 3 );
+
+    if(move === 0){
+        compPic.src = ('images/1200px-Two-parts_stone_nikogda_takih_ne_videl_vot.jpeg');
+    } else if (move === 1){
+        compPic.src = ('images/Notebook-Paper-US-Letter.png');
+    }else{
+        compPic.src = ('images/4VAR8_AS01.jpeg');       
+    }
+
+
+    return move;
 }
 
 function determineResult(playerMove, CPUMove){

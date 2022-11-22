@@ -16,18 +16,18 @@
     <main>
         <div class="flex justify-evenly mt-32">
             <div class="card lg:card-side max-w-3xl bg-base-100 shadow-xl">
-                <figure><img id="cpuPic" src="images/computer-lab-icon-2.jpg" alt="Album"/></figure>
+                <figure><img id="cpuPic" class="max-w-1/3" src="images/computer-lab-icon-2.jpg" alt="Album"/></figure>
                 <div class="card-body">
-                  <h2 class="card-title">Computer</h2>
-                  <p>The computers choice: </p>
+                  <h2 class="card-title">CPU</h2>
+                  <p>CPU points: </p>
                 </div>
               </div>
     
               <div class="card lg:card-side max-w-3xl bg-base-100 shadow-xl">
-                <figure><img id="playerPic" src="images/player.png" alt="Album"/></figure>
+                <figure><img id="playerPic" class="max-w-1/3"  src="images/player.png" alt="Album"/></figure>
                 <div class="card-body">
                   <h2 class="card-title">Player</h2>
-                  <p>Your choice: </p>
+                  <p>Player points: </p>
                   <div class="card-actions justify-end flex flex-col" id="userchoices">
                   </div>
                 </div>
@@ -38,7 +38,7 @@
     <footer class="flex justify-center mt-20 gap-4" id="centralNav">
         <div class="flex gap-4">
             <select class="select w-full max-w-xs" id="pointMenu">
-                <option disabled selected>To how many points?</option>
+                <option selected>1</option>
                 <option>3</option>
                 <option>5</option>
                 <option>7</option>
@@ -48,6 +48,7 @@
 
               <button class="btn" id="startbtn">Button</button>
         </div>
+
     </footer>
     <script type="module" src="game.js"></script>
 </body>
