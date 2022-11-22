@@ -155,3 +155,15 @@ function determineResult(playerMove, CPUMove){
     }
 
 }
+
+function checkWin() {
+    if (userpnts >= targetpnts){
+        return "Game end - PlayerWin";
+    }
+    else if (cpupnts >= targetpnts){
+        return "Game end - CPUWin";
+    }
+    else {
+        return false;
+    }
+}
