@@ -14,21 +14,28 @@
     </header>
 
     <main>
-        <div class="flex justify-evenly mt-32">
-            <div class="card lg:card-side max-w-3xl bg-base-100 shadow-xl">
-                <figure><img id="cpuPic" class="max-w-1/3" src="images/computer-lab-icon-2.jpg" alt="Album"/></figure>
+        <p class="flex justify-center text-6xl mt-8" id="result"></p> 
+        <div class="flex flex-auto justify-evenly mt-20">
+            <div class="flex flex-1 card lg:card-side max-w-3xl bg-base-100 shadow-xl">
+                <figure><img id="cpuPic" class="max-w-42 h-4/5" src="images/computer-lab-icon-2.png" alt="Album"/></figure>
                 <div class="card-body">
                   <h2 class="card-title">CPU</h2>
-                  <p>CPU points: </p>
+                  <div>
+                    <p>CPU points: </p>
+                    <p id="cpuPoints"></p>
+                  </div>
                 </div>
               </div>
     
-              <div class="card lg:card-side max-w-3xl bg-base-100 shadow-xl">
-                <figure><img id="playerPic" class="max-w-1/3"  src="images/player.png" alt="Album"/></figure>
-                <div class="card-body">
+              <div class="flex flex-1 card lg:card-side max-w-3xl bg-base-100 shadow-xl">
+                <figure><img id="playerPic" class="max-w-42"  src="images/player.png" alt="Album"/></figure>
+                <div class="card-body flex">
                   <h2 class="card-title">Player</h2>
-                  <p>Player points: </p>
-                  <div class="card-actions justify-end flex flex-col" id="userchoices">
+                  <div>
+                        <p>Player points: </p>
+                        <p id="playerPoints"></p>
+                  </div>
+                  <div class="card-actions justify-end flex flex-col justify-self-end" id="userchoices">
                   </div>
                 </div>
               </div>
