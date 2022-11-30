@@ -3,6 +3,12 @@ const pntMenu = document.getElementById('pointMenu')
 const userChoices = document.getElementById('userchoices')
 const cNav = document.getElementById('centralNav')
 
+const playerPntMenu = document.getElementById('playerPointMenu')
+const cpuPntMenu = document.getElementById('cpuPointMenu')
+
+playerPntMenu.style.display = 'none'
+cpuPntMenu.style.display = 'none'
+
 const continueBtn = document.createElement('button')
 continueBtn.textContent = 'Continue'
 continueBtn.classList.add('btn')
@@ -20,7 +26,6 @@ ctnGame.classList.add('btn')
 ctnGame.classList.add('btn-primary')
 ctnGame.style.display = 'none'
 cNav.appendChild(ctnGame)
-
 
 const cpuTurnbtn = document.createElement('button')
 cpuTurnbtn.textContent = 'CPU turn'
@@ -73,9 +78,9 @@ curPlayerPoints.style.display = 'none'
 const rndResult = document.getElementById('result')
 
 ctnGame.addEventListener('click', () => {
-  userpnts = parseInt(localStorage.getItem("savedPlayerPoints"))
-  cpupnts = parseInt(localStorage.getItem("savedCPUPoints"))
-  targetpnts = parseInt(localStorage.getItem("savedTargetPoints"))
+  userpnts = parseInt(localStorage.getItem('savedPlayerPoints'))
+  cpupnts = parseInt(localStorage.getItem('savedCPUPoints'))
+  targetpnts = parseInt(localStorage.getItem('savedTargetPoints'))
 
   ctnGame.style.display = 'none'
   startbtn.style.display = 'none'
@@ -83,10 +88,15 @@ ctnGame.addEventListener('click', () => {
 
   curCpuPoints.style.display = 'block'
   curPlayerPoints.style.display = 'block'
+  curCpuPoints.textContent = cpupnts
+  curPlayerPoints.textContent = userpnts
+
   scissors.style.display = 'block'
   rock.style.display = 'block'
   paper.style.display = 'block'
   resetbtn.style.display = 'block'
+  playerPntMenu.style.display = 'block'
+  cpuPntMenu.style.display = 'block'
 })
 
 startbtn.addEventListener('click', () => {
@@ -103,18 +113,20 @@ startbtn.addEventListener('click', () => {
   curCpuPoints.style.display = 'block'
   curPlayerPoints.style.display = 'block'
 
-  localStorage.setItem("savedPlayerPoints", userpnts)
-  localStorage.setItem("savedCPUPoints", cpupnts)
+  localStorage.setItem('savedPlayerPoints', userpnts)
+  localStorage.setItem('savedCPUPoints', cpupnts)
   localStorage.setItem('savedTargetPoints', targetpnts)
   localStorage.setItem('gameInProgress', 1)
 
+  playerPntMenu.style.display = 'block'
+  cpuPntMenu.style.display = 'block'
   curCpuPoints.textContent = 0
   curPlayerPoints.textContent = 0
 })
 
-if (parseInt(localStorage.getItem("gameInProgress")) === 1){
-    ctnGame.style.display = 'block'
-  }
+if (parseInt(localStorage.getItem('gameInProgress')) === 1) {
+  ctnGame.style.display = 'block'
+}
 
 scissors.addEventListener('click', () => {
   console.log('S!')
@@ -175,8 +187,8 @@ function reset () {
   playerPic.src = ('images/player.png')
   compPic.src = 'images/computer-lab-icon-2.png'
 
-  curCpuPoints.style.display = 'none'
-  curPlayerPoints.style.display = 'none'
+  playerPntMenu.style.display = 'none'
+  cpuPntMenu.style.display = 'none'
 
   rndResult.textContent = ''
   localStorage.setItem('gameInProgress', 0)
@@ -228,13 +240,13 @@ function determineResult (playerMove, CPUMove) {
     userpnts += 1
     curPlayerPoints.textContent = userpnts
     rndResult.textContent = 'Player Wins this round!'
-    localStorage.setItem("savedPlayerPoints", userpnts)
+    localStorage.setItem('savedPlayerPoints', userpnts)
     return 'PlayerWin'
   } else {
     cpupnts += 1
     curCpuPoints.textContent = cpupnts
     rndResult.textContent = 'CPU Wins this round!'
-    localStorage.setItem("savedCPUPoints", cpupnts)
+    localStorage.setItem('savedCPUPoints', cpupnts)
     return 'CPUWin'
   }
 }

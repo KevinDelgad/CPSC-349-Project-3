@@ -6,7 +6,8 @@
   "scripts": {
     "tailwind": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "browser-sync": "browser-sync start --server --startPath /src /index.html --files 'src/*.html,*.css,*.js'",
-    "start": "npm-run-all --parallel tailwind browser-sync"
+    "start": "npm-run-all --parallel tailwind browser-sync",
+    "test": "standard && vnu --skip-non-html --Werror *.html"
   },
   "dependencies": {
     "daisyui": "^2.41.0"
