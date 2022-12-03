@@ -2,6 +2,7 @@ const startbtn = document.getElementById('startbtn')
 const pntMenu = document.getElementById('pointMenu')
 const userChoices = document.getElementById('userchoices')
 const cNav = document.getElementById('centralNav')
+const instr = document.getElementById('instructions')
 
 const playerPntMenu = document.getElementById('playerPointMenu')
 const cpuPntMenu = document.getElementById('cpuPointMenu')
@@ -85,6 +86,8 @@ ctnGame.addEventListener('click', () => {
   ctnGame.style.display = 'none'
   startbtn.style.display = 'none'
   pntMenu.style.display = 'none'
+  instr.style.display = 'none'
+
 
   curCpuPoints.style.display = 'block'
   curPlayerPoints.style.display = 'block'
@@ -105,6 +108,8 @@ startbtn.addEventListener('click', () => {
   console.log(targetpnts)
   startbtn.style.display = 'none'
   pntMenu.style.display = 'none'
+  instr.style.display = 'none'
+
 
   scissors.style.display = 'block'
   rock.style.display = 'block'
@@ -177,6 +182,9 @@ function reset () {
 
   startbtn.style.display = 'block'
   pntMenu.style.display = 'block'
+  instr.style.display = 'block'
+
+
 
   scissors.style.display = 'none'
   rock.style.display = 'none'
