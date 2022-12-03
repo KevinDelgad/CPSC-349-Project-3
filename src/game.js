@@ -88,7 +88,6 @@ ctnGame.addEventListener('click', () => {
   pntMenu.style.display = 'none'
   instr.style.display = 'none'
 
-
   curCpuPoints.style.display = 'block'
   curPlayerPoints.style.display = 'block'
   curCpuPoints.textContent = cpupnts
@@ -109,7 +108,6 @@ startbtn.addEventListener('click', () => {
   startbtn.style.display = 'none'
   pntMenu.style.display = 'none'
   instr.style.display = 'none'
-
 
   scissors.style.display = 'block'
   rock.style.display = 'block'
@@ -183,8 +181,6 @@ function reset () {
   startbtn.style.display = 'block'
   pntMenu.style.display = 'block'
   instr.style.display = 'block'
-
-
 
   scissors.style.display = 'none'
   rock.style.display = 'none'
